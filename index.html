@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viskosität</title>
+    <title>Viskosität – ganz einfach</title>
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
@@ -69,29 +69,21 @@
         }
         
         /* Animationen */
-        .fall-water .ball {
-            animation: fallWater 1s linear forwards;
-        }
-        .fall-oil .ball {
-            animation: fallOil 4s linear forwards;
-        }
-        .fall-honey .ball {
-            animation: fallHoney 12s linear forwards;
-        }
+        .fall-water .ball     { animation: fallWater 1s linear forwards; }
+        .fall-oil .ball       { animation: fallOil 4s linear forwards; }
+        .fall-honey .ball     { animation: fallHoney 12s linear forwards; }
+        .fall-cold-oil .ball  { animation: fallColdOil 8s linear forwards; }
+        .fall-warm-oil .ball  { animation: fallWarmOil 1.5s linear forwards; }
         
-        @keyframes fallWater {
-            to { top: 265px; }
-        }
-        @keyframes fallOil {
-            to { top: 265px; }
-        }
-        @keyframes fallHoney {
-            to { top: 265px; }
-        }
+        @keyframes fallWater    { to { top: 265px; } }
+        @keyframes fallOil      { to { top: 265px; } }
+        @keyframes fallHoney    { to { top: 265px; } }
+        @keyframes fallColdOil  { to { top: 265px; } }
+        @keyframes fallWarmOil  { to { top: 265px; } }
         
         /* Farben der Flüssigkeiten */
         .water-liquid { background: #4fc3f7; opacity: 0.35; }
-        .oil-liquid { background: #8d5524; opacity: 0.35; }
+        .oil-liquid   { background: #8d5524; opacity: 0.35; }
         .honey-liquid { background: #ffcc00; opacity: 0.35; }
         
         /* Beispiel-Karten */
@@ -136,12 +128,19 @@
             font-size: 16px;
             color: #555;
         }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     
     <h1>Viskosität</h1>
-    <h2 style="font-size:32px; margin-top:0;">Die innere Reibung</h2>
+    <h2 style="font-size:32px; margin-top:0;">Die innere Reibung – super einfach erklärt</h2>
     
     <p class="center" style="font-size:24px;">
         Viskosität = wie zäh eine Flüssigkeit ist.<br>
@@ -153,8 +152,8 @@
         Gase (wie Luft) sind fast wie Wasser ohne Reibung.
     </div>
     
-    <!-- EXPERIMENT -->
-    <h2>Experiment: Kugel fallen lassen</h2>
+    <!-- EXPERIMENT 1: Grundversuch -->
+    <h2>Experiment 1: Kugel fallen lassen</h2>
     <p class="center">Klicke auf die Röhre – die Kugel fällt unterschiedlich schnell!</p>
     
     <div style="text-align:center; margin:40px 0;">
@@ -194,11 +193,44 @@
         
     </div>
     
+    <!-- NEUES EXPERIMENT: Temperatur bei Öl -->
+    <h2>Experiment 2: Kaltes Öl vs. Warmes Öl</h2>
+    <p class="center highlight">
+        Wichtig: Die Viskosität von Öl hängt stark von der Temperatur ab!<br>
+        Kaltes Öl ist zäh • Warmes Öl ist dünnflüssig
+    </p>
+    <p class="center">Klicke auf die Röhren – siehst du den riesigen Unterschied?</p>
+    
+    <div style="text-align:center; margin:40px 0;">
+        
+        <!-- Kaltes Öl -->
+        <div style="display:inline-block; margin:0 40px;">
+            <div class="tube" id="tube4" onclick="startFall(this)">
+                <div class="liquid oil-liquid"></div>
+                <div class="ball"></div>
+            </div>
+            <div style="font-size:22px; font-weight:bold; color:#8d5524;">❄️ Kaltes Öl</div>
+            <button onclick="resetTube('tube4')">Nochmal</button>
+            <div style="font-size:14px;">sehr langsam (hohe Viskosität)</div>
+        </div>
+        
+        <!-- Warmes Öl -->
+        <div style="display:inline-block; margin:0 40px;">
+            <div class="tube" id="tube5" onclick="startFall(this)">
+                <div class="liquid oil-liquid"></div>
+                <div class="ball"></div>
+            </div>
+            <div style="font-size:22px; font-weight:bold; color:#8d5524;">🔥 Warmes Öl</div>
+            <button onclick="resetTube('tube5')">Nochmal</button>
+            <div style="font-size:14px;">schnell (niedrige Viskosität)</div>
+        </div>
+        
+    </div>
+    
     <!-- BEISPIELE -->
     <h2>Weitere Beispiele</h2>
     
     <div style="text-align:center;">
-        
         <div class="example">
             <div style="font-size:60px; margin-bottom:10px;">💧</div>
             <h3>Wasser</h3>
@@ -207,7 +239,7 @@
         
         <div class="example">
             <div style="font-size:60px; margin-bottom:10px;">🛢️</div>
-            <h3>Öl (Motoröl / Speiseöl)</h3>
+            <h3>Öl</h3>
             <p>zähflüssiger<br>fließt langsam</p>
         </div>
         
@@ -222,48 +254,47 @@
             <h3>Luft / Gase</h3>
             <p>fast keine Reibung<br>fließt sofort</p>
         </div>
-        
     </div>
     
     <div class="info">
-        <strong>Tipp für zu Hause:</strong><br>
-        Nimm 3 Gläser: Wasser • Öl • Honig (Honig etwas warm machen).<br>
-        Lass eine Murmel hineinfallen und schau den Unterschied!
+        <strong>Tipp für zu Hause (super beeindruckend!):</strong><br>
+        Nimm Motoröl oder Speiseöl:<br>
+        • Ein Glas kalt aus dem Kühlschrank (❄️)<br>
+        • Ein Glas im warmen Wasserbad erwärmen (ca. 40–50 °C) 🔥<br><br>
+        Lass in beide eine Murmel fallen – der Unterschied ist riesig!<br>
+        Erklärung: Wärme macht Öl dünnflüssiger → niedrigere Viskosität.
     </div>
     
     <footer>
-       Tapio-Präsentation-Viskosität
+        Einfache Seite ohne Internet-Vorlage • Nur kopieren und als „index.html“ speichern<br>
+        Viel Erfolg bei deiner Präsentation! (Jetzt mit Temperatur-Experiment)
     </footer>
     
     <script>
         function startFall(tube) {
-            // Reset zuerst
-            tube.classList.remove('fall-water', 'fall-oil', 'fall-honey');
+            tube.classList.remove('fall-water', 'fall-oil', 'fall-honey', 'fall-cold-oil', 'fall-warm-oil');
             
-            // Kurzer Delay damit Reset sichtbar wird
             setTimeout(() => {
                 if (tube.id === 'tube1') tube.classList.add('fall-water');
                 if (tube.id === 'tube2') tube.classList.add('fall-oil');
                 if (tube.id === 'tube3') tube.classList.add('fall-honey');
+                if (tube.id === 'tube4') tube.classList.add('fall-cold-oil');
+                if (tube.id === 'tube5') tube.classList.add('fall-warm-oil');
             }, 10);
         }
         
         function resetTube(id) {
             const tube = document.getElementById(id);
-            tube.classList.remove('fall-water', 'fall-oil', 'fall-honey');
+            tube.classList.remove('fall-water', 'fall-oil', 'fall-honey', 'fall-cold-oil', 'fall-warm-oil');
         }
         
-        // Automatisch einmal zeigen (nur beim ersten Laden)
+        // Automatisch zeigen (nur beim ersten Laden)
         window.onload = function() {
-            setTimeout(() => {
-                startFall(document.getElementById('tube1'));
-            }, 600);
-            setTimeout(() => {
-                startFall(document.getElementById('tube2'));
-            }, 1200);
-            setTimeout(() => {
-                startFall(document.getElementById('tube3'));
-            }, 1800);
+            setTimeout(() => startFall(document.getElementById('tube1')), 600);
+            setTimeout(() => startFall(document.getElementById('tube2')), 1200);
+            setTimeout(() => startFall(document.getElementById('tube3')), 1800);
+            setTimeout(() => startFall(document.getElementById('tube4')), 2800);
+            setTimeout(() => startFall(document.getElementById('tube5')), 3400);
         };
     </script>
 </body>
